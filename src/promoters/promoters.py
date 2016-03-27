@@ -47,11 +47,6 @@ def promoters_name(histmods, kmers, tissue):
 
 
 
-
-
-
-
-
 def load_target(tissue):
     result = []
     for chrom in range(1,23) + ['X']:

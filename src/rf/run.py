@@ -105,17 +105,15 @@ def train_save(datapos, dataneg, name, outdir):
 
 tissue_choices = ('heart', 'brain', 'both', 'positives', 'balanced',
                       'randoms_heart', 'randoms_brain', 'randoms_both', 'randoms_positives', 
-                      'predicted_promoters_4mers_heart_0.8', 
-                      'predicted_promoters_h1hesc_4mers_heart_0.8',
-                      'predicted_promoters_4mers_brain_0.8', 
-                      'predicted_promoters_h1hesc_4mers_brain_0.8',
-                      'predicted_promoters_4mers_both_0.8',
-                      'predicted_promoters_h1hesc_4mers_both_0.8',
-                      'predicted_promoters_4mers_balanced_0.8',
-                      'predicted_promoters_h1hesc_4mers_balanced_0.8',
+                      'predicted_promoters_4mers_heart_'+THRESHOLD, 
+                      'predicted_promoters_h1hesc_4mers_heart_'+THRESHOLD,
+                      'predicted_promoters_4mers_brain_'+THRESHOLD, 
+                      'predicted_promoters_h1hesc_4mers_brain_'+THRESHOLD,
+                      'predicted_promoters_4mers_both_'+THRESHOLD,
+                      'predicted_promoters_h1hesc_4mers_both_'+THRESHOLD,
+                      'predicted_promoters_4mers_balanced_'+THRESHOLD,
+                      'predicted_promoters_h1hesc_4mers_balanced_'+THRESHOLD,
                       'heart_notss', 'brain_notss', 'both_notss', 'positives_notss',
-                      
-                      'predicted_promoters_4mers_both_0.0',
                       )
 
 def main(argv):

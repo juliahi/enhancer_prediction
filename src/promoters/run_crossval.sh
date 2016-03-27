@@ -1,9 +1,9 @@
 boruta='--boruta'
-for i in {1..5}
+for i in {1..$REPEATS }
 do
-    db="$DB1500 promoters"
+    db="${DB}1500 promoters"
     tissue='both_notss'
-    tissue_neg='predicted_promoters_4mers_both_0.8'
+    tissue_neg="predicted_promoters_4mers_both_${CUTOFF}"
     
     python -m src.rf.run --db $db -p $tissue -n $tissue_neg                    --kmers 4mers       --distinct    -o "both_enhancers_vs_promoters_4mers" $boruta &
     python -m src.rf.run --db $db -p $tissue -n $tissue_neg --histmods tier12.list                  --distinct    -o "both_enhancers_vs_promoters_tier12" $boruta &

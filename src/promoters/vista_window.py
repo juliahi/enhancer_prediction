@@ -22,7 +22,7 @@ def gen_windows(length, outname, db):
     for e in enhancers:
         olds =  e.start 
         olde = e.end
-        e.start = e.start + (e.end-e.start)/2 - length/2
+        e.start = max(0, e.start + (e.end-e.start)/2 - length/2)
         e.end = e.start + length - 1        #endpoint included
         if olds > e.start or olde < e.end:
             e.seq = str(record_dict[e.chromosome].seq[e.start:(e.end+1)])

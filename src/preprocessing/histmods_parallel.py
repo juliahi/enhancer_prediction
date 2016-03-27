@@ -47,17 +47,12 @@ def count_mean_signal(enhancers, bigwig_file, name):
         #+1 added 24.09.15 after finding endpoint not included
         if summary.valid_count*10 < enh.end-enh.start+1:
             mean = mean_all[enh.chromosome]
-            #fails.write("%d\t%d\n" % (enh.id, summary.valid_count))
             fails.append(1)
         else:
             mean = summary.sum_data / summary.valid_count
             fails.append(0)
         i += 1
         output2.write("%d\t%f\n" % (enh.id, mean))
-    #bigwig.close()
-    #output2 = open(bigwig_file + ".means." + name, "w")
-    #output2.write(output.getvalue())
-    #output.close()
     output2.close()
     
     print "output written to: %s.means.%s" % (bigwig_file, name.split('/')[-1])
@@ -80,9 +75,7 @@ def count_all_means(enhancers_file, directories, name):
     n = len(names)
     result = [0]*n
     
-    #n_lines = 0
     filenames = []
-    N_pools = 4
     for directory in directories:
         filenames += glob(directory + "/*.bigWig")+glob(directory + "/*.bw")
     
@@ -93,10 +86,6 @@ def count_all_means(enhancers_file, directories, name):
     for filename, fails in zip(filenames, fail_list):
             if fails != []:
                 fails_file.write("\t".join([filename.split('/')[-1]]+map(str, fails))+"\n")
-            #result = [result[i] + fails[i] for i in range(n)]
-            #n_lines += 1
-    #result = [float(x)/n_lines for x in result]
-    #return zip(names, result)
 
 
 def check_position(chrom, start, end):

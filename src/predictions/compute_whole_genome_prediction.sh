@@ -1,5 +1,5 @@
 
-for chrom in {1..22} #X
+for chrom in $CHROMOSOMES
 do
     echo predicting chromosome $chrom 
     for tissue in 'heart' 'brain' 'both'

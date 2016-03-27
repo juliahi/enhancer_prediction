@@ -12,7 +12,8 @@ USEGC = False
 
 #http://www.ncbi.nlm.nih.gov/projects/genome/assemly/grc/human/data/index.shtml
 #GRCh37
-chr_lens = dict([('chr1', 249250621), ('chr2',  243199373), ('chr3',  198022430),
+chr_lens = dict([('chr1', 2000621), #('chr1', 249250621), 
+		('chr2',  243199373), ('chr3',  198022430),
                  ('chr4',  191154276), ('chr5',  180915260), ('chr6',  171115067), 
                  ('chr7',  159138663), ('chr8',  146364022),('chr9',  141213431), 
                  ('chr10', 135534747), ('chr11', 135006516), ('chr12', 133851895),
@@ -44,9 +45,11 @@ TSS_FILE = DATAPATH+'ensemble_hg19_tss_sorted.bed'
 
 #whole genome predictions parameters
 WINDOW=int(os.environ["WINDOW"])
+THRESHOLD=os.environ["CUTOFF"]
 STEP=WINDOW/2
 WIGGLENAME="predictions/%d/"%WINDOW
 WIGGLEPATH=DATAPATH+WIGGLENAME
+VISTA_FILE=os.environ["DB"]
 
 def get_name(filename):
     k = filename[:filename.find(".")]

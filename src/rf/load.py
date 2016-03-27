@@ -15,16 +15,6 @@ import train_two_step
 
 from ..promoters import read_wiggle
 from ..preprocessing.load_vista import load_enhancers
-
-
-
-#def my_transpose(data):
-    #array = numpy.zeros((data.shape[0], len(data.dtype.names)))
-    ##print data
-    #for x in xrange(data.shape[0]):
-        #for i in xrange(len(array[x])):
-            #array[x][i] = data[x][i]
-    #return array, data.dtype.names
     
 
 def load_target(database, tissue, dist = True):
@@ -82,7 +72,7 @@ def load_data(database, histmods, kmers, tissue, dist = True):
     if histmods == '-': histmods = ''
     
     path = database+'_'+histmods+'_'+str(kmers)+'_'+tissue+'.pickle'
-    path = 'datasets/'+path.replace('/', '_')
+    path = RESULTSPATH+'datasets/'+path.replace('/', '_')
     if os.path.exists(path):
         data = pickle.load(open(path))
         print 'loading saved', path

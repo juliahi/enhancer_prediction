@@ -21,7 +21,6 @@ from sklearn import tree
 
 
 def classify(name, class_file, db, tissue, histmods, kmers):
-    print sklearn.__version__
     chrom = name.split('/')[2]
     step = name.split('/')[1]
     
@@ -79,9 +78,8 @@ if __name__ == "__main__":
     
     #second step
     #classpath = 'classifiers/class_balancedpromoters_randoms_both_4mers'
-    print class_path
     class_file = glob(RESULTSPATH+class_path+'*/*_class.pickle')
-    print class_file
+    print 'classifiers=', class_file
     classify(name, class_file[0], db, tissue, histmods, kmers)
     
     

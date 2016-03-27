@@ -27,7 +27,6 @@ def read_data(filename, kmers_filenames, sequences, name):
             filenames += sorted(glob(DATAPATH+directory + "/*.means." + name.split('/')[-1]))
         for filename in filenames:
             names.append(get_name(filename))
-        #print filenames
     else:
         directories = []
         filenames = []

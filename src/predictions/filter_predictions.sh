@@ -8,7 +8,7 @@ do
 done
 
 #predictions over 80%
-TH=0.8
+TH=${CUTOFF}
 for tissue in 'brain' 'heart'
 do
     python -m src.predictions.filter_predictions "${DB}_${tissue}__4mers" "predicted_${DB}_${tissue}__4mers_$TH/all.bed" threshold $TH

@@ -62,8 +62,9 @@ def find_best_predictions(wiggle, number, filename):
         values += sorted(values2, reverse=True)[:number]
     selected=sorted(values, reverse=True)[:number]
     
-    print "selected values:", selected[0][0], selected[-1][0]
-    print "all windows:", count
+    if len(selected) > 1:
+    	print "range of predictions of selected windows:", selected[0][0], selected[-1][0]
+    print "number of windows (overall):", count
     
     with open(DATAPATH+filename, 'w') as f:
         for chrom, region_list in wiggle.iteritems():
